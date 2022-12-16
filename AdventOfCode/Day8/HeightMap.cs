@@ -18,6 +18,19 @@ public class HeightMap
     {
         return _map[pos.Y][pos.X];
     }
+    
+    public bool TryGetTree(Position pos, out int treeHeight)
+    {
+        if (pos.X < 0 || pos.Y < 0 || pos.Y >= this.GetRowCount() || pos.X >= this.GetRow(pos.Y).Count)
+        {
+            treeHeight = -1;
+            return false;
+        }
+
+        treeHeight = _map[pos.Y][pos.X];
+
+        return true;
+    }
 
     public int GetRowCount()
     {
