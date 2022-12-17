@@ -22,7 +22,7 @@ public class SolverPart2Dynamic
 
     private ScenicScore GetScenicScore(List<List<ScenicScore>> allScenicScores, Position pos)
     {
-        if (pos.X < 0 || pos.Y < 0 || pos.Y > this._map.GetRowCount() || pos.X > this._map.GetRow(pos.Y).Count)
+        if (pos.X < 0 || pos.Y < 0 || pos.Y >= this._map.GetRowCount() || pos.X >= this._map.GetRow(pos.Y).Count)
         {
             return new ScenicScore { Left = -1, Right = -1, Up = -1, Down = -1 };
         }
@@ -68,8 +68,8 @@ public class SolverPart2Dynamic
             {
                 var origin = new Position(x, y);
                 var originTreeHeight = this._map.GetTree(origin);
-                var rightPosition = origin.Move(Direction.Left, 1);
-                var downPosition = origin.Move(Direction.Top, 1);
+                var rightPosition = origin.Move(Direction.Right, 1);
+                var downPosition = origin.Move(Direction.Down, 1);
                 this._map.TryGetTree(rightPosition, out var rightNeighborHeight);
                 this._map.TryGetTree(downPosition, out var downNeighborHeight);
 

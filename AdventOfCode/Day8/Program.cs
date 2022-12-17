@@ -12,7 +12,7 @@ Console.WriteLine($"Day 8.1: {result}");
 
 //////////////////////////////////////////////
 
-var solver2 = new SolverPart2(heightMap);
+var solver2 = new SolverPart2Dynamic(heightMap);
 result = solver2.GetHighestScenicScore();
 
 Console.WriteLine($"Day 8.2: {result}");
